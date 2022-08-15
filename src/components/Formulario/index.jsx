@@ -15,19 +15,19 @@ const Formulario = () => {
         'Inovação e Gestão'
     ]
 
-    function pararEventoPadrao(e){
+    const aoSalvar = (e) => {
         e.preventDefault()
-        console.log('bruh')
+        console.log('Form foi submetido')
     }
 
     return ( 
         <section className={styles.formulario}>
-            <form onSubmit={pararEventoPadrao}>
+            <form onSubmit={aoSalvar}>
             <h2>Preencha os dados para criar o card do colaborador</h2>
-            <CampoTexto text='Nome:' name='nome' placeholder='Digite seu nome'/>
-            <CampoTexto text='Cargo:' name='cargo' placeholder='Digite seu cargo'/>
+            <CampoTexto obrigatorio={true} text='Nome:' name='nome' placeholder='Digite seu nome'/>
+            <CampoTexto obrigatorio={true} text='Cargo:' name='cargo' placeholder='Digite seu cargo'/>
             <CampoTexto text='Imagem:' name='imagem' placeholder='Digite o endereço da imagem'/>
-            <ListaSuspensa label='Time' itens={times}/>
+            <ListaSuspensa obrigatorio={true} label='Time' itens={times}/>
             <Botao>
                 Criar Card
             </Botao>
