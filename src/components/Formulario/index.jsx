@@ -3,7 +3,7 @@ import Botao from '../Botao';
 import CampoTexto from '../CampoTexto';
 import ListaSuspensa from '../ListaSuspensa';
 import styles from './Formulario.module.css'
-const Formulario = () => {
+const Formulario = ({aoColaboradorCadastrado}) => {
 
     const times = [
         'Programação',
@@ -22,7 +22,12 @@ const Formulario = () => {
 
     const aoSalvar = (e) => {
         e.preventDefault()
-        console.log(`Form foi submetido => ${nome}, ${cargo}, ${imagem}, ${time}`)
+        aoColaboradorCadastrado({
+            nome,
+            cargo,
+            imagem,
+            time
+        })
     }
 
     return ( 
