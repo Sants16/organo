@@ -46,8 +46,7 @@ function App() {
   const [colaboradores, setColaboradores] = useState([])
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
-    console.log(colaborador)
-    setColaboradores({...colaborador, colaborador}) //o ...colaborador seria como dizer 'pegue todas as informações já existentes do state colaborador mais tal coisa' como por exemplo nessa situação estamos setando o state colaborador como todas as informações já existentes nele mais o novo colaborador que será inserido
+    setColaboradores([...colaboradores, colaborador]) //o ...colaborador seria como dizer 'pegue todas as informações já existentes do state colaborador mais tal coisa' como por exemplo nessa situação estamos setando o state colaborador como todas as informações já existentes nele mais o novo colaborador que será inserido
   }
 
   return (
@@ -55,7 +54,13 @@ function App() {
       <Banner/>
       <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={ colaborador => aoNovoColaboradorAdicionado(colaborador) }/>
 
-      {times.map((time) => <Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria}/> )}
+      {times.map((time) => <Time 
+                              key={time.nome} 
+                              nome={time.nome} 
+                              corPrimaria={time.corPrimaria} 
+                              corSecundaria={time.corSecundaria} 
+                              colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+                            /> )}
 
     </div>
   );

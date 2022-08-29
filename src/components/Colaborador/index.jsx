@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './Colaborador.module.css'
-const Colaborador = () => {
+const Colaborador = ({nome, cargo, imagem}) => {
     return ( 
         <div className={styles.colaborador}>
             <div className={styles.cabecalho}>
-                <img src="https://github.com/Sants16.png" alt="João Victor" />
+                <img src={imagem} alt={nome} />
             </div>
             <div className={styles.rodape}>
-                <h4>João Victor</h4>
-                <h5>sei la</h5>
+                <h4>{nome}</h4>
+                <h5>{cargo}</h5>
             </div>
         </div>
      );
